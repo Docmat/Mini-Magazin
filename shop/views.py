@@ -18,7 +18,7 @@ class ProductDetailView(DetailView):
 
 class ProductUpdateView(UpdateView):
     model = Product
-    template_name = 'shop/shop_update.html'
+    template_name = 'shop/shop_edit.html'
     fields = ('name','description')
 
 

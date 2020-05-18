@@ -8,7 +8,8 @@
 {% for product in object_list  %}
 <div class="card">
     <div class="card-header">
-        <span>{{product.name}}</span>
+    
+    <a href="{% url 'product_detail' pk=product.id %}">{{product.name}}</a>
         
     </div>
     <div class="card-body">
@@ -21,6 +22,8 @@
     </div>
     <div class="card-footer text-center text-muted" >
         <a href="#">Edit</a> | | <a href="#" > Delete </a>
+
+ 
 
     </div>
       
