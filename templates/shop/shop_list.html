@@ -13,9 +13,15 @@
     </div>
     <div class="card-body">
         {{product.description}}
-        
-      <p><img src="{{ product.image.url }}"></p>
-        
+        {% if product.image  %}
+      <img src="{{ product.image.url }}" alt="" width="100">
+        {% else %}
+        <p></p>
+        {% endif %}        
+    </div>
+    <div class="card-footer text-center text-muted" >
+        <a href="#">Edit</a> | | <a href="#" > Delete </a>
+
     </div>
       
 </div>
