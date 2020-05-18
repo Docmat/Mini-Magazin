@@ -5,4 +5,4 @@ from django.views.generic import ListView
 
 class ProductListView(ListView):
     model = Product
-    template_name = 'shop_list.html'
+    template_name = 'shop/shop_list.html'
