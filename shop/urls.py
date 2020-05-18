@@ -1,11 +1,12 @@
 from django.urls import path
-from .views import ShopPageView
+from .views import ProductListView
+
+
 
 urlpatterns = [
-    path('shop/',ShopPageView.as_view(),name = 'shop_list'),
+    path('shop/',ProductListView.as_view(),name = 'product_list'),
+  
+
 ]
 
 
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

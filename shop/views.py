@@ -1,8 +1,8 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render
 from .models import Category,Product
 from django.views.generic import ListView
 
-class ShopPageView(ListView):
+
+class ProductListView(ListView):
     model = Product
     template_name = 'shop_list.html'
-    
