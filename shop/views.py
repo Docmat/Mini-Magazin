@@ -32,3 +32,4 @@ class ProductCreateView(CreateView):
     model = Product
     template_name = 'shop/shop_create.html'
     fields = ('name','description','price','quantity')
+    success_url = reverse_lazy('product:product_list')
