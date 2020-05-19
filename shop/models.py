@@ -25,7 +25,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products')
     description = models.TextField(null=True)
     price = models.DecimalField(max_digits=10,decimal_places=2)
-    quantity = models.SmallIntegerField(null=True)
+    quantity = models.SmallIntegerField(null=True,blank=True)
 
     class Meta:
         ordering = ('name',)
