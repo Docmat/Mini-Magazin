@@ -10,11 +10,11 @@
 </div>
 
 <p>
-    <a href="{% url 'product_edit' object.pk %}"> Edit </a>
-    <a href="{% url 'product_delete' object.pk %}"> Delete</a>
+    <a href="{% url 'product:product_edit' object.pk %}"> Edit </a>
+    <a href="{% url 'product:product_delete' object.pk %}"> Delete</a>
 
 </p>
 
 
-<p> Back to Home Page <a href="{% url 'product_list' %}">Go to Shop</a> </p>
+<p> Back to Home Page <a href="{% url 'product:product_list' %}">Go to Shop</a> </p>
 {% endblock content %}
