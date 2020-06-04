@@ -31,7 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
     'shop.apps.ShopConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    # 'staticfiles',
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,17 +67,25 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR,'templates')
         ],
-        'APP_DIRS': True,
+        # 'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.contrib.messages.context_processors.messages',  
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                'admin_tools.template_loaders.Loader',
             ],
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'magazin.wsgi.application'
 
@@ -123,8 +139,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_FINDERS = 'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+# ADMIN_TOOLS_THEMING_CSS = 'css/theming.css'
+# ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
+# ADMIN_TOOLS_INDEX_DASHBOARD = 'examen.somefile.CustomIndexDashboard'
+# ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'examen.somefile.CustomAppIndexDashboard'
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

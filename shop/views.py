@@ -22,14 +22,14 @@ class ProductUpdateView(UpdateView):
     fields = ('name','description')
 
 
-
 class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'shop/shop_delete.html'
     success_url = reverse_lazy('product:product_list')
 
+
 class ProductCreateView(CreateView):
     model = Product
     template_name = 'shop/shop_create.html'
-    fields = ('name','description','price','quantity')
+    fields = ('name','category','description','price','quantity')
     success_url = reverse_lazy('product:product_list')
